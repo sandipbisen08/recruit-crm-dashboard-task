@@ -2,12 +2,29 @@ import React from 'react';
 import { mockNotes } from '../data/notes';
 import '../styles/components/RightSidebar.scss';
 
-const RightSidebar: React.FC = () => {
+interface RightSidebarProps {
+  isOpen?: boolean;
+  isMobile?: boolean;
+  onClose?: () => void;
+}
+
+const RightSidebar: React.FC<RightSidebarProps> = ({ isOpen = false, isMobile = false, onClose }) => {
   const tabs = ['All', 'Notes & Calls', 'Tasks', 'Meeting', 'Files'];
   const activeTab = 'All';
 
   return (
-    <aside className="sidebar-right">
+    <aside className={`sidebar-right ${isMobile && isOpen ? 'sidebar-open' : ''}`}>
+      {/* Mobile close button */}
+      {isMobile && (
+        <button 
+          className="mobile-close-btn" 
+          onClick={onClose}
+          aria-label="Close sidebar"
+        >
+          <i className="bx bx-x"></i>
+        </button>
+      )}
+      
       <div className="action-icons">
         <button className="action-icon-btn call"><i className="bx bx-phone"></i></button>
         <button className="action-icon-btn note"><i className="bx bx-note"></i></button>

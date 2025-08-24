@@ -1,3 +1,6 @@
+/* Import Variables */
+@import 'variables';
+
 /* Basic Reset & Font */
 body, html {
     margin: 0;
@@ -10,4 +13,150 @@ body, html {
 
 * {
     box-sizing: border-box;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px; // Base font size
+    
+    @include mobile {
+        font-size: 14px; // Smaller base font on mobile
+    }
+}
+
+/* Touch-friendly interactions */
+@include mobile {
+    // Ensure all interactive elements are touch-friendly
+    button, .btn, a, input, select, textarea {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    // Improve tap targets
+    .icon-btn, .sidebar-icon {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Responsive utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    
+    @include mobile {
+        padding: 0 $spacing-md;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 (-$spacing-sm);
+    
+    @include mobile {
+        margin: 0;
+    }
+}
+
+.col {
+    flex: 1;
+    padding: 0 $spacing-sm;
+    
+    @include mobile {
+        padding: 0;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+/* Responsive text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+@include mobile {
+    .mobile-text-center { text-align: center; }
+    .mobile-text-left { text-align: left; }
+}
+
+/* Responsive spacing utilities */
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
+.p-xl { padding: $spacing-xl; }
+
+/* Responsive display utilities */
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-none { display: none; }
+
+@include mobile {
+    .mobile-d-block { display: block !important; }
+    .mobile-d-none { display: none !important; }
+    .mobile-d-flex { display: flex !important; }
+}
+
+@include tablet-up {
+    .tablet-d-block { display: block !important; }
+    .tablet-d-none { display: none !important; }
+    .tablet-d-flex { display: flex !important; }
+}
+
+@include desktop {
+    .desktop-d-block { display: block !important; }
+    .desktop-d-none { display: none !important; }
+    .desktop-d-flex { display: flex !important; }
+}
+
+/* Responsive flexbox utilities */
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+
+@include mobile {
+    .mobile-flex-column { flex-direction: column !important; }
+    .mobile-justify-center { justify-content: center !important; }
+    .mobile-align-center { align-items: center !important; }
+}
+
+/* Print styles */
+@media print {
+    .sidebar-left,
+    .sidebar-right,
+    .header .action-buttons,
+    .header .icon-buttons {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+    
+    .dashboard-container {
+        height: auto !important;
+        overflow: visible !important;
+    }
 }

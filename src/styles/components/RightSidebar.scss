@@ -1,3 +1,5 @@
+@import '../variables';
+
 .sidebar-right {
     width: 420px;
     min-width: 300px;
@@ -7,6 +9,70 @@
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+
+    // ===== RESPONSIVE DESIGN =====
+    
+    // Tablet styles
+    @include tablet {
+        width: $right-sidebar-width-tablet;
+        min-width: 280px;
+    }
+    
+    // Mobile styles - vertical slide from top
+    @include mobile {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: $z-index-modal;
+        border-radius: 0;
+        box-shadow: $shadow-lg;
+        transition: top 0.3s ease-in-out;
+        
+        &.sidebar-open {
+            top: 0;
+        }
+        
+        // Add close button for mobile
+        &::before {
+            content: none;
+        }
+    }
+}
+
+// Mobile close button
+.mobile-close-btn {
+    display: none;
+    
+    @include mobile {
+        display: flex;
+        position: absolute;
+        top: $spacing-lg;
+        right: $spacing-lg;
+        z-index: $z-index-tooltip;
+        background: $background-tertiary;
+        border: none;
+        border-radius: $border-radius-full;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: $font-size-xl;
+        color: $text-secondary;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background: $secondary-light;
+            color: $text-primary;
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
 }
 
 .action-icons {
@@ -50,6 +116,19 @@
             &:hover { background-color: #1557b0; color: white; }
         }
     }
+
+    // Mobile responsive action icons
+    @include mobile {
+        gap: $spacing-md;
+        margin-bottom: $spacing-xl;
+        padding: $spacing-lg $spacing-lg $spacing-lg;
+        
+        .action-icon-btn {
+            min-width: 44px; // Touch-friendly
+            min-height: 44px;
+            font-size: $font-size-xl;
+        }
+    }
 }
 
 .sidebar-tabs {
@@ -79,12 +158,34 @@
             font-weight: 500;
         }
     }
+
+    // Mobile responsive tabs
+    @include mobile {
+        padding: 0 $spacing-lg $spacing-lg;
+        margin-bottom: $spacing-xl;
+        gap: $spacing-sm;
+        
+        .sidebar-tab-link {
+            padding: $spacing-md $spacing-lg;
+            font-size: $font-size-sm;
+            min-height: 44px; // Touch-friendly
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }
 
 .notes-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    // Mobile responsive notes list
+    @include mobile {
+        padding: 0 $spacing-lg $spacing-lg;
+        gap: $spacing-lg;
+    }
 }
 
 .note-card {
@@ -167,6 +268,100 @@
             i {
                 font-size: 0.9rem;
             }
+        }
+    }
+
+    // Mobile responsive note cards
+    @include mobile {
+        padding: $spacing-lg;
+        border-radius: $border-radius-md;
+        
+        .note-header {
+            flex-wrap: wrap;
+            gap: $spacing-sm;
+            margin-bottom: $spacing-md;
+            
+            .note-type {
+                font-size: $font-size-sm;
+            }
+            
+            .note-tag {
+                font-size: $font-size-xs;
+                padding: $spacing-xs $spacing-sm;
+            }
+        }
+        
+        .note-content {
+            font-size: $font-size-sm;
+            line-height: 1.5;
+            margin: $spacing-md 0;
+        }
+        
+        .note-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $spacing-sm;
+            font-size: $font-size-xs;
+            
+            .note-associations {
+                width: 100%;
+            }
+            
+            .note-timestamp {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+// Mobile overlay backdrop
+.sidebar-backdrop {
+    display: none;
+    
+    @include mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: $z-index-modal - 1;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        
+        &.active {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+
+// Mobile sidebar toggle button
+.sidebar-right-toggle {
+    display: none;
+    
+    @include mobile {
+        display: block;
+        position: fixed;
+        bottom: $spacing-2xl;
+        right: $spacing-lg;
+        z-index: $z-index-fixed;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius-full;
+        width: 56px;
+        height: 56px;
+        font-size: $font-size-xl;
+        cursor: pointer;
+        box-shadow: $shadow-lg;
+        
+        &:hover {
+            background: $primary-dark;
+        }
+        
+        &:active {
+            transform: scale(0.95);
         }
     }
 }

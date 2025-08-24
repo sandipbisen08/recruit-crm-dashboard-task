@@ -1,3 +1,5 @@
+@import '../variables';
+
 .header {
     display: flex;
     flex-direction: column;
@@ -149,6 +151,147 @@
                     color: #5f6368;
                 }
             }
+        }
+    }
+
+    // ===== RESPONSIVE DESIGN =====
+    
+    // Tablet styles
+    @include tablet {
+        .header-main {
+            padding: 0 $spacing-lg;
+            gap: $spacing-md;
+            
+            .search-container {
+                min-width: 250px;
+            }
+            
+            .header-right {
+                gap: $spacing-lg;
+            }
+            
+            .logo {
+                font-size: $font-size-xl;
+                
+                span {
+                    display: none; // Hide text part of logo on tablet
+                }
+            }
+        }
+    }
+    
+    // Mobile styles
+    @include mobile {
+        .header-main {
+            height: $header-height-mobile;
+            padding: 0 $spacing-lg 0 70px; // Extra left padding for hamburger menu
+            gap: $spacing-sm;
+            
+            .header-left {
+                .logo {
+                    font-size: $font-size-lg;
+                    
+                    span {
+                        display: none; // Hide text part of logo
+                    }
+                }
+            }
+            
+            .header-center {
+                .search-container {
+                    min-width: 200px;
+                    max-width: 250px;
+                    
+                    @media (max-width: 480px) {
+                        display: none; // Hide search on very small screens
+                    }
+                }
+            }
+            
+            .header-right {
+                gap: $spacing-sm;
+                
+                .action-buttons {
+                    gap: $spacing-sm;
+                    
+                    .btn {
+                        padding: $spacing-sm $spacing-md;
+                        font-size: $font-size-xs;
+                        
+                        // Hide button text on very small screens
+                        @media (max-width: 480px) {
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                
+                .icon-buttons {
+                    gap: $spacing-sm;
+                }
+                
+                .icon-btn {
+                    padding: $spacing-sm;
+                    font-size: $font-size-lg;
+                    min-width: 44px; // Touch-friendly minimum
+                    min-height: 44px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .user-profile {
+                    gap: $spacing-sm;
+                    
+                    .user-info {
+                        display: none; // Hide user info text on mobile
+                    }
+                    
+                    img {
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Mobile large (480px+) - show some elements back
+    @include mobile-large {
+        .header-main {
+            .header-center .search-container {
+                display: flex; // Show search on larger mobile screens
+            }
+            
+            .header-right .action-buttons .btn span {
+                display: inline; // Show button text on larger mobile screens
+            }
+        }
+    }
+}
+
+// Mobile search overlay (can be toggled)
+.mobile-search-overlay {
+    display: none;
+    
+    @include mobile {
+        position: fixed;
+        top: $header-height-mobile;
+        left: 0;
+        right: 0;
+        background: $background-primary;
+        border-bottom: 1px solid $border-color;
+        padding: $spacing-lg;
+        z-index: $z-index-dropdown;
+        
+        &.active {
+            display: block;
+        }
+        
+        .search-container {
+            width: 100%;
+            min-width: auto;
         }
     }
 }

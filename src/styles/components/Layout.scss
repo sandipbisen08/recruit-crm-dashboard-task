@@ -1,8 +1,53 @@
+@import '../variables';
+
 .dashboard-container {
     display: flex;
     height: 100vh;
     background-color: #f7f9fc;
     overflow: hidden;
+
+    // ===== RESPONSIVE DESIGN =====
+    
+    // Mobile styles - vertical stack layout
+    @include mobile {
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+// Mobile hamburger menu
+.mobile-menu-toggle {
+    display: none;
+    
+    @include mobile {
+        display: block;
+        position: fixed;
+        top: $spacing-md;
+        left: $spacing-md;
+        z-index: $z-index-fixed;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius-sm;
+        padding: $spacing-sm;
+        font-size: $font-size-lg;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: $shadow-md;
+        
+        &:hover {
+            background: $primary-dark;
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
 }
 
 .sidebar-left {
@@ -11,6 +56,25 @@
     color: white;
     padding: 1rem 0;
     flex-shrink: 0;
+
+    // Mobile responsive - horizontal layout at top
+    @include mobile {
+        width: 100%;
+        height: $sidebar-height-mobile;
+        padding: 0;
+        order: 1;
+        position: relative;
+        z-index: $z-index-sticky;
+        
+        // Hide by default, show when menu is open
+        &.mobile-hidden {
+            display: none;
+        }
+        
+        &.mobile-visible {
+            display: flex;
+        }
+    }
 }
 
 .main-wrapper {
@@ -19,16 +83,32 @@
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+
+    // Mobile responsive
+    @include mobile {
+        order: 2;
+        height: calc(100vh - #{$sidebar-height-mobile});
+        
+        // Adjust when sidebar is hidden
+        &.sidebar-hidden {
+            height: 100vh;
+        }
+    }
 }
 
 .header {
     height: 70px;
     background-color: #ffffff;
     border-bottom: 1px solid #e0e0e0;
-    // padding: 0 2rem;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+
+    // Mobile responsive
+    @include mobile {
+        height: $header-height-mobile;
+        padding-left: 60px; // Make room for hamburger menu
+    }
 }
 
 .content-area {
@@ -37,6 +117,20 @@
     padding: 0.5rem;
     gap: 1.5rem;
     overflow: hidden;
+
+    // Tablet responsive
+    @include tablet {
+        padding: $spacing-lg;
+        gap: $spacing-lg;
+    }
+
+    // Mobile responsive - vertical stack
+    @include mobile {
+        flex-direction: column;
+        padding: $spacing-lg;
+        gap: $spacing-lg;
+        overflow-y: auto;
+    }
 }
 
 .main-content {
@@ -46,6 +140,21 @@
     padding: 1.5rem;
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    // Tablet responsive
+    @include tablet {
+        padding: $spacing-xl;
+        border-radius: $border-radius-md;
+    }
+
+    // Mobile responsive
+    @include mobile {
+        order: 1;
+        padding: $spacing-lg;
+        border-radius: $border-radius-md;
+        overflow-y: visible;
+        flex-shrink: 0;
+    }
 }
 
 .sidebar-right {
@@ -57,9 +166,117 @@
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+
+    // Tablet responsive
+    @include tablet {
+        width: $right-sidebar-width-tablet;
+        min-width: 280px;
+        padding: $spacing-xl;
+    }
+
+    // Mobile responsive - hidden by default, shown as overlay
+    @include mobile {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 90%;
+        max-width: 400px;
+        height: 100vh;
+        z-index: $z-index-modal;
+        border-radius: 0;
+        box-shadow: $shadow-lg;
+        transition: right 0.3s ease-in-out;
+        order: 2;
+        
+        &.sidebar-open {
+            right: 0;
+        }
+    }
 }
 
-/* Responsive Design */
+// Mobile overlay backdrop for right sidebar
+.sidebar-backdrop {
+    display: none;
+    
+    @include mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: $z-index-modal - 1;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        
+        &.active {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+
+// Mobile right sidebar toggle button
+.sidebar-right-toggle {
+    display: none;
+    
+    @include mobile {
+        display: block;
+        position: fixed;
+        bottom: $spacing-2xl;
+        right: $spacing-lg;
+        z-index: $z-index-fixed;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius-full;
+        width: 56px;
+        height: 56px;
+        font-size: $font-size-xl;
+        cursor: pointer;
+        box-shadow: $shadow-lg;
+        
+        &:hover {
+            background: $primary-dark;
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+/* Enhanced Responsive Design */
+
+// Desktop large screens
+@include desktop-large {
+    .content-area {
+        padding: $spacing-xl;
+        gap: $spacing-2xl;
+    }
+    
+    .main-content {
+        padding: $spacing-2xl;
+    }
+    
+    .sidebar-right {
+        width: $right-sidebar-width-desktop;
+        padding: $spacing-2xl;
+    }
+}
+
+// Desktop styles
+@include desktop {
+    .sidebar-right {
+        width: $right-sidebar-width-desktop;
+    }
+    
+    .content-area {
+        gap: $spacing-xl;
+    }
+}
+
+// Legacy media queries for backward compatibility
 @media (max-width: 1200px) {
     .sidebar-right {
         width: 300px;
@@ -103,5 +320,49 @@
     
     .main-content {
         order: 1;
+    }
+}
+
+// Utility classes for responsive behavior
+.mobile-only {
+    display: none;
+    
+    @include mobile {
+        display: block;
+    }
+}
+
+.tablet-up {
+    display: none;
+    
+    @include tablet-up {
+        display: block;
+    }
+}
+
+.desktop-only {
+    display: none;
+    
+    @include desktop {
+        display: block;
+    }
+}
+
+// Mobile-specific layout helpers
+@include mobile {
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+    
+    .mobile-center {
+        text-align: center !important;
+    }
+    
+    .mobile-full-width {
+        width: 100% !important;
+    }
+    
+    .mobile-hidden {
+        display: none !important;
     }
 }

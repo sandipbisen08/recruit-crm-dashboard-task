@@ -1,3 +1,5 @@
+@import '../variables';
+
 .sidebar-left {
     width: 80px;
     background-color: #0d2854;
@@ -31,5 +33,112 @@
 
     .sidebar-icon-bottom {
         margin-top: auto;
+    }
+
+    // ===== RESPONSIVE DESIGN =====
+    
+    // Tablet styles
+    @include tablet {
+        width: 70px;
+        padding: $spacing-md 0;
+        
+        .sidebar-icon, .sidebar-icon-bottom {
+            font-size: $font-size-xl;
+            margin: $spacing-sm 0;
+            padding: $spacing-sm;
+            min-width: 44px; // Touch-friendly
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+    // Mobile styles - horizontal layout, hidden by default
+    @include mobile {
+        width: 100%;
+        height: $sidebar-height-mobile;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0 $spacing-lg;
+        position: relative;
+        z-index: $z-index-sticky;
+        display: none; // Hidden by default
+        
+        &.mobile-visible {
+            display: flex; // Show when hamburger is clicked
+        }
+        
+        .sidebar-icon, .sidebar-icon-bottom {
+            font-size: $font-size-lg;
+            margin: 0 $spacing-sm;
+            padding: $spacing-sm;
+            width: auto;
+            min-width: 44px; // Touch-friendly minimum
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: $border-radius-sm;
+            
+            &.active {
+                border-left: none;
+                border-bottom: 3px solid #1a73e8;
+                background-color: rgba(26, 115, 232, 0.2);
+            }
+            
+            &:hover {
+                border-radius: $border-radius-sm;
+            }
+        }
+        
+        .sidebar-icon-bottom {
+            margin-top: 0;
+            margin-left: auto; // Push to right side
+        }
+    }
+    
+    // Very small mobile - reduce spacing
+    @media (max-width: #{$breakpoint-mobile-large - 1px}) {
+        @include mobile {
+            padding: 0 $spacing-md;
+            
+            .sidebar-icon, .sidebar-icon-bottom {
+                margin: 0 $spacing-xs;
+                font-size: $font-size-base;
+                min-width: 40px;
+                min-height: 40px;
+            }
+        }
+    }
+}
+
+// Mobile sidebar toggle (if needed for collapsible behavior)
+.sidebar-toggle {
+    display: none;
+    
+    @include mobile {
+        display: block;
+        position: fixed;
+        top: $spacing-lg;
+        left: $spacing-lg;
+        z-index: $z-index-fixed;
+        background: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius-sm;
+        padding: $spacing-sm;
+        font-size: $font-size-lg;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:hover {
+            background: $primary-dark;
+        }
     }
 }

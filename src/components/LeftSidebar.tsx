@@ -1,9 +1,14 @@
 import React from 'react';
 import '../styles/components/LeftSidebar.scss';
 
-const LeftSidebar: React.FC = () => {
+interface LeftSidebarProps {
+  isVisible?: boolean;
+  isMobile?: boolean;
+}
+
+const LeftSidebar: React.FC<LeftSidebarProps> = ({ isVisible = true, isMobile = false }) => {
   return (
-    <aside className="sidebar-left">
+    <aside className={`sidebar-left ${isMobile && isVisible ? 'mobile-visible' : ''} ${isMobile && !isVisible ? 'mobile-hidden' : ''}`}>
       <div className="sidebar-icon"><i className="bx bx-grid-alt "></i></div>
       <div className="sidebar-icon active"><i className="bx bx-user-circle profile active"></i></div>
       <div className="sidebar-icon"><i className="bx bx-building"></i></div>
