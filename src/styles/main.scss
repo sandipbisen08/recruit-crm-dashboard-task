@@ -31,7 +31,37 @@ html {
         min-height: 44px;
         min-width: 44px;
     }
+    nav {
+        overflow: auto;
+        a {
+            min-height: 44px;
     
+            min-width: max-content;
+        }  
+    }
+    .search-container {
+        width: 180px;
+    }
+    .header-left {
+        // width: 150px !important;
+        display: none !important;
+    }
+    .tab-content {
+        max-height: 370px;
+        overflow-y: auto;
+    }
+    .logo {
+        width: max-content;
+    }
+    .breadcrumb-nav {
+        display: none !important;
+        flex-direction: column;
+        height: 70px !important;
+        padding-bottom:5px !important;
+        .breadcrumbs {
+            display: unset !important;
+        }
+    }
     // Improve tap targets
     .icon-btn, .sidebar-icon {
         min-width: 44px;

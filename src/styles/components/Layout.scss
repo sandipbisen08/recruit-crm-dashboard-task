@@ -24,7 +24,8 @@
         display: block;
         position: fixed;
         top: $spacing-md;
-        left: $spacing-md;
+        // left: $spacing-md;
+        right: $spacing-md;
         z-index: $z-index-fixed;
         background: $primary-color;
         color: white;
@@ -107,7 +108,7 @@
     // Mobile responsive
     @include mobile {
         height: $header-height-mobile;
-        padding-left: 60px; // Make room for hamburger menu
+        // padding-left: 60px; 
     }
 }
 

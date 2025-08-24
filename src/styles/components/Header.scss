@@ -174,7 +174,7 @@
                 font-size: $font-size-xl;
                 
                 span {
-                    display: none; // Hide text part of logo on tablet
+                    // display: none; 
                 }
             }
         }
@@ -184,7 +184,7 @@
     @include mobile {
         .header-main {
             height: $header-height-mobile;
-            padding: 0 $spacing-lg 0 70px; // Extra left padding for hamburger menu
+            padding: 0 $spacing-lg 0 10px; // Extra left padding for hamburger menu
             gap: $spacing-sm;
             
             .header-left {
@@ -232,10 +232,10 @@
                 }
                 
                 .icon-btn {
-                    padding: $spacing-sm;
+                    // padding: $spacing-sm;
                     font-size: $font-size-lg;
-                    min-width: 44px; // Touch-friendly minimum
-                    min-height: 44px;
+                    min-width: 30px; // Touch-friendly minimum
+                    min-height: 30px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
