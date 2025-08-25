@@ -75,7 +75,7 @@ src/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd windsurf-project-final
+   cd recruit-crm-project-final
    ```
 
 2. **Install dependencies**

@@ -168,20 +168,56 @@
         .header-main {
             padding: 0 $spacing-lg;
             gap: $spacing-md;
+            height: 65px;
             
             .search-container {
-                min-width: 250px;
+                min-width: 220px;
+                max-width: 280px;
             }
             
             .header-right {
-                gap: $spacing-lg;
+                gap: $spacing-md;
+                
+                .action-buttons {
+                    gap: $spacing-sm;
+                    
+                    .btn {
+                        padding: $spacing-sm $spacing-md;
+                        font-size: $font-size-sm;
+                    }
+                }
+                
+                .icon-buttons {
+                    gap: $spacing-sm;
+                }
+                
+                .user-profile {
+                    .user-info {
+                        span:first-child {
+                            font-size: $font-size-sm;
+                        }
+                        
+                        span:last-child {
+                            font-size: $font-size-xs;
+                        }
+                    }
+                    
+                    img {
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
             }
             
             .logo {
-                font-size: $font-size-xl;
+                font-size: $font-size-lg;
+                
+                img {
+                    width: 35px;
+                }
                 
                 span {
-                    // display: none; 
+                    font-size: $font-size-base;
                 }
             }
         }
@@ -191,7 +227,7 @@
     @include mobile {
         .header-main {
             height: $header-height-mobile;
-            padding: 0 $spacing-lg 0 10px; // Extra left padding for hamburger menu
+            padding: 0 $spacing-lg 0 10px;
             gap: $spacing-sm;
             
             .header-left {
@@ -199,18 +235,18 @@
                     font-size: $font-size-lg;
                     
                     span {
-                        display: none; // Hide text part of logo
+                        display: none;
                     }
                 }
             }
             
             .header-center {
                 .search-container {
-                    min-width: 200px;
-                    max-width: 250px;
+                    min-width: 180px;
+                    max-width: 220px;
                     
                     @media (max-width: 480px) {
-                        display: none; // Hide search on very small screens
+                        display: none;
                     }
                 }
             }
@@ -225,7 +261,6 @@
                         padding: $spacing-sm $spacing-md;
                         font-size: $font-size-xs;
                         
-                        // Hide button text on very small screens
                         @media (max-width: 480px) {
                             span {
                                 display: none;
@@ -239,9 +274,8 @@
                 }
                 
                 .icon-btn {
-                    // padding: $spacing-sm;
                     font-size: $font-size-lg;
-                    min-width: 30px; // Touch-friendly minimum
+                    min-width: 30px;
                     min-height: 30px;
                     display: flex;
                     align-items: center;
@@ -252,12 +286,12 @@
                     gap: $spacing-sm;
                     
                     .user-info {
-                        display: none; // Hide user info text on mobile
+                        display: none;
                     }
                     
                     img {
-                        width: 36px;
-                        height: 36px;
+                        width: 32px;
+                        height: 32px;
                     }
                 }
             }
@@ -268,11 +302,11 @@
     @include mobile-large {
         .header-main {
             .header-center .search-container {
-                display: flex; // Show search on larger mobile screens
+                display: flex;
             }
             
             .header-right .action-buttons .btn span {
-                display: inline; // Show button text on larger mobile screens
+                display: inline;
             }
         }
     }

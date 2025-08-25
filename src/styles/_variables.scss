@@ -2,7 +2,7 @@
 $breakpoint-mobile: 320px;
 $breakpoint-mobile-large: 480px;
 $breakpoint-tablet: 768px;
-$breakpoint-tablet-large: 992px;
+$breakpoint-tablet-large: 1024px;
 $breakpoint-desktop: 1200px;
 $breakpoint-desktop-large: 1400px;
 
@@ -44,22 +44,22 @@ $breakpoint-desktop-large: 1400px;
 }
 
 // ===== SPACING =====
-$spacing-xs: 4px;   // 4px
-$spacing-sm: 8px;    // 8px
-$spacing-md: 12px;   // 12px
-$spacing-lg: 16px;      // 16px
-$spacing-xl: 24px;    // 24px
-$spacing-2xl: 32px;     // 32px
-$spacing-3xl: 48px;     // 48px
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+$spacing-2xl: 32px;
+$spacing-3xl: 48px;
 
 // ===== TYPOGRAPHY =====
-$font-size-xs: 12px;   // 12px
-$font-size-sm: 14px;  // 14px
-$font-size-base: 16px;    // 16px
-$font-size-lg: 18px;  // 18px
-$font-size-xl: 20px;   // 20px
-$font-size-2xl: 24px;   // 24px
-$font-size-3xl: 32px;     // 32px
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
 
 // ===== COLORS =====
 $primary-color: #1a73e8;
@@ -93,7 +93,7 @@ $header-height: 70px;
 $header-height-mobile: 60px;
 
 $right-sidebar-width-desktop: 420px;
-$right-sidebar-width-tablet: 300px;
+$right-sidebar-width-tablet: 320px;
 
 // ===== SHADOWS =====
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);

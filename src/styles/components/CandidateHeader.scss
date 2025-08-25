@@ -7,16 +7,16 @@
     grid-template-areas:
         "info actions"
         "contact contact";
-    gap: 1rem;
-    padding-bottom: 1.5rem;
+    gap: 16px;
+    padding-bottom: 24px;
     border-bottom: 1px solid #e0e0e0;
-    padding: 10px;
+    padding: 16px;
 
     .candidate-info {
         grid-area: info;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 16px;
 
         .candidate-avatar {
             width: 60px;
@@ -35,30 +35,30 @@
             .name-with-badges {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 0.25rem;
+                gap: 8px;
+                margin-bottom: 4px;
                 
                 h2 {
                     margin: 0;
-                    font-size: 1.5rem;
+                    font-size: 24px;
                     font-weight: 600;
                     display: flex;
                     align-items: center;
-                    gap: 0.5rem;
+                    gap: 8px;
                     
                     .candidate-id {
                         background-color: #e8f0fe;
                         color: #1967d2;
-                        padding: 0.2rem 0.5rem;
+                        padding: 4px 8px;
                         border-radius: 4px;
-                        font-size: 0.8rem;
+                        font-size: 12px;
                         font-weight: 500;
                     }
                 }
                 
                 .verification-badges {
                     display: flex;
-                    gap: 0.25rem;
+                    gap: 4px;
                     
                     .badge {
                         width: 20px;
@@ -67,7 +67,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 0.7rem;
+                        font-size: 10px;
                         color: white;
                         
                         &.badge-blue { background-color: #1a73e8; }
@@ -80,11 +80,11 @@
                 
                 .social-icons {
                     display: flex;
-                    gap: 0.25rem;
-                    margin-left: 0.5rem;
+                    gap: 4px;
+                    margin-left: 8px;
                     
                     i {
-                        font-size: 1.2rem;
+                        font-size: 18px;
                         cursor: pointer;
                         transition: opacity 0.2s ease;
                         
@@ -112,10 +112,10 @@
         grid-area: actions;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 16px;
 
         .btn {
-            padding: 0.6rem 1.2rem;
+            padding: 10px 20px;
             border: 1px solid #dadce0;
             border-radius: 4px;
             background-color: #1a73e8;
@@ -134,10 +134,10 @@
             border: 1px solid #bbbbbb;
             background: none;
             // border: none;
-            font-size: 1.2rem;
+            font-size: 18px;
             color: #5f6368;
             cursor: pointer;
-            padding: 5px 7px;
+            padding: 10px 14px;
             border-radius: 8px;
             
             &:hover {
@@ -149,15 +149,15 @@
     .candidate-contact {
         grid-area: contact;
         display: flex;
-        gap: 2rem;
+        gap: 32px;
         color: #5f6368;
-        font-size: 0.9rem;
+        font-size: 14px;
         justify-content: space-between;
         font-weight: 600;
         p {
             margin: 0;
             i {
-                margin-right: 0.5rem;
+                margin-right: 8px;
                 // color: blue;
             }
             span {
@@ -177,8 +177,8 @@
             gap: $spacing-md;
             
             .candidate-avatar {
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
             }
             
             .candidate-name-title {
@@ -196,13 +196,30 @@
                         }
                     }
                     
+                    .verification-badges {
+                        gap: $spacing-xs;
+                        
+                        .badge {
+                            width: 20px;
+                            height: 20px;
+                            font-size: 10px;
+                        }
+                    }
+                    
                     .social-icons {
                         margin-left: 0;
+                        gap: $spacing-sm;
                         
                         i {
                             font-size: $font-size-lg;
+                            min-width: 36px;
+                            min-height: 36px;
                         }
                     }
+                }
+                
+                p {
+                    font-size: $font-size-sm;
                 }
             }
         }
@@ -213,12 +230,13 @@
             .btn {
                 padding: $spacing-sm $spacing-lg;
                 font-size: $font-size-sm;
+                min-height: 40px;
             }
             
             .icon-btn {
                 padding: $spacing-sm;
-                min-width: 44px;
-                min-height: 44px;
+                min-width: 40px;
+                min-height: 40px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -226,8 +244,19 @@
         }
         
         .candidate-contact {
-            gap: $spacing-xl;
+            gap: $spacing-lg;
             font-size: $font-size-sm;
+            
+            p {
+                display: flex;
+                align-items: center;
+                
+                i {
+                    margin-right: $spacing-sm;
+                    width: 18px;
+                    flex-shrink: 0;
+                }
+            }
         }
     }
     
@@ -277,7 +306,7 @@
                         .badge {
                             width: 18px;
                             height: 18px;
-                            font-size: 0.6rem;
+                            font-size: 10px;
                         }
                     }
                     
@@ -305,7 +334,6 @@
         .candidate-actions {
             justify-content: flex-start;
             gap: $spacing-sm;
-            // flex-wrap: wrap;
             
             .btn {
                 padding: $spacing-md $spacing-lg;
@@ -344,10 +372,8 @@
                     width: 20px;
                     flex-shrink: 0;
                 }
-                
             } 
         }
-        
     }
     
     // Very small mobile - stack actions vertically
@@ -359,7 +385,6 @@
                 
                 .btn {
                     flex: none;
-                    // width: 100%;
                 }
             }
         }

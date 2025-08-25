@@ -3,13 +3,13 @@
 .details-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: $spacing-lg 5rem;
+  gap: $spacing-lg 80px;
   padding: $spacing-xl 0;
 
   // Tablet responsive
   @include tablet {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: $spacing-lg;
     padding: $spacing-lg 0;
   }
 
@@ -23,16 +23,16 @@
 
 .detail-item {
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 200px 1fr;
   align-items: center;
   padding: $spacing-sm 0;
-  // border-bottom: 1px solid $border-color-light;
 
   // Tablet responsive
   @include tablet {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: $spacing-md;
     padding: $spacing-md 0;
+    border-bottom: 1px solid $border-color-light;
   }
 
   // Mobile responsive
@@ -58,6 +58,12 @@
   font-size: $font-size-sm;
   line-height: 1.4;
 
+  // Tablet responsive
+  @include tablet {
+    font-size: $font-size-sm;
+    font-weight: 600;
+  }
+
   // Mobile responsive
   @include mobile {
     font-size: $font-size-base;
@@ -77,6 +83,10 @@
   // Tablet responsive
   @include tablet {
     font-size: $font-size-sm;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-overflow: unset;
   }
 
   // Mobile responsive
@@ -124,6 +134,11 @@
   // Skills and tags
   &.skills-item {
     .detail-value {
+      @include tablet {
+        white-space: normal;
+        line-height: 1.5;
+      }
+      
       @include mobile {
         white-space: normal;
         line-height: 1.5;
@@ -138,6 +153,10 @@
       align-items: center;
       gap: $spacing-xs;
 
+      @include tablet {
+        justify-content: flex-start;
+      }
+
       @include mobile {
         justify-content: flex-start;
       }
@@ -149,6 +168,11 @@
         font-weight: 600;
         text-transform: uppercase;
 
+        @include tablet {
+          font-size: $font-size-xs;
+          padding: $spacing-xs $spacing-md;
+        }
+
         @include mobile {
           font-size: $font-size-xs;
           padding: $spacing-xs $spacing-md;
@@ -158,16 +182,35 @@
   }
 }
 
+// Enhanced tablet layout
+@include tablet {
+  .details-grid {
+    background: $background-primary;
+    border-radius: $border-radius-md;
+    padding: $spacing-xl;
+    margin: 0;
+
+    .detail-item {
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
 // Enhanced mobile layout for better readability
 @include mobile {
   .details-grid {
-    // Add subtle background for better section separation
     background: $background-primary;
     border-radius: $border-radius-md;
     padding: $spacing-lg;
     margin: 0 (-$spacing-md);
 
-    // Enhanced spacing between sections
     .detail-item {
       &:last-child {
         border-bottom: none;
