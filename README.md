@@ -75,7 +75,7 @@ src/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd recruit-crm-project-final
+   cd recruit-crm-dashboard-task
    ```
 
 2. **Install dependencies**
