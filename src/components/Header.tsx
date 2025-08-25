@@ -1,7 +1,7 @@
 import React from 'react';
 import { Candidate } from '../data/candidate';
 import '../styles/components/Header.scss';
-
+import logo from "../image/logo.png";
 interface HeaderProps {
   candidate: Candidate;
 }
@@ -19,7 +19,8 @@ const Header: React.FC<HeaderProps> = ({ candidate }) => {
         
         <div className="header-center">
           <div className="logo">
-            <i className="bx bx-grid-alt"></i>
+          <img src={logo} alt="Recruit CRM Logo" />
+            {/* <i className="bx bx-grid-alt"></i> */}
             <span>recruit crm</span>
           </div>
         </div>
@@ -27,9 +28,9 @@ const Header: React.FC<HeaderProps> = ({ candidate }) => {
         <div className="header-right">
           <div className="icon-buttons">
             <button className="icon-btn"><i className="bx bx-plus plus-icon"></i></button>
-            <button className="icon-btn"><i className="bx bx-gift"></i></button>
-            <button className="icon-btn"><i className="bx bx-envelope"></i></button>
-            <button className="icon-btn"><i className="bx bx-bell"></i></button>
+            <button className="icon-btn"><i className="bx bx-gift round-border"></i></button>
+            <button className="icon-btn"><i className="bx bx-envelope round-border"></i></button>
+            <button className="icon-btn"><i className="bx bx-bell round-border"></i></button>
           </div>
           
           <div className="user-profile">

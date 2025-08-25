@@ -37,8 +37,8 @@ const CandidateHeader: React.FC<CandidateHeaderProps> = ({ candidate, onEdit }) 
         <button className="icon-btn"><i className="bx bx-dots-vertical-rounded"></i></button>
       </div>
       <div className="candidate-contact">
-        <p><i className="bx bx-envelope"></i> {candidate.email}</p>
-        <p><i className="bx bx-phone"></i> {candidate.phone}</p>
+        <p><i className="bx bx-envelope"></i><span>{candidate.email}</span> </p>
+        <p><i className="bx bx-phone"></i> <span>{candidate.phone}</span> </p>
         <p><i className="bx bx-user"></i> Phyllis Yang <i className="bx bx-time"></i> {candidate.lastUpdated}</p>
       </div>
     </div>

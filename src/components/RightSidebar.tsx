@@ -26,10 +26,10 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ isOpen = false, isMobile = 
       )}
       
       <div className="action-icons">
+      <button className="action-icon-btn note"><i className="bx bx-note"></i></button>
         <button className="action-icon-btn call"><i className="bx bx-phone"></i></button>
-        <button className="action-icon-btn note"><i className="bx bx-note"></i></button>
-        <button className="action-icon-btn meeting"><i className="bx bx-calendar"></i></button>
         <button className="action-icon-btn file"><i className="bx bx-file"></i></button>
+        <button className="action-icon-btn meeting"><i className="bx bx-calendar"></i></button>
       </div>
       <div className="sidebar-tabs">
         {tabs.map(tab => (

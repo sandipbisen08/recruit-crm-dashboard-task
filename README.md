@@ -103,7 +103,7 @@ src/
 The application is fully responsive with breakpoints at:
 - **Desktop**: 1200px and above
 - **Tablet**: 768px - 1199px
-- **Mobile**: Below 768px
+- **Mobile**: Below 767px
 
 ### Mobile Adaptations:
 - Sidebar collapses to horizontal navigation

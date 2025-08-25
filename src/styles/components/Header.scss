@@ -68,7 +68,9 @@
             font-weight: bold;
             font-size: 1.5rem;
             color: #1a73e8;
-            
+            img {
+                width: 40px;
+            }
             i {
                 font-size: 1.8rem;
             }
@@ -121,8 +123,13 @@
             .plus-icon {
                 color: white;
                 background-color: #1670C8;
-                padding: 10px;
+                padding: 6px;
                 border-radius: 50%;
+            }
+            .round-border {
+                border-radius: 50%;
+                padding: 5px;
+                border: 1px solid #c7c7c7;
             }
         }
 
