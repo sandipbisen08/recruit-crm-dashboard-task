@@ -143,7 +143,7 @@ html {
     .mobile-d-flex { display: flex !important; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     .tablet-d-block { display: block !important; }
     .tablet-d-none { display: none !important; }
     .tablet-d-flex { display: flex !important; }
