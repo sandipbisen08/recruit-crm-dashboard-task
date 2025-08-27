@@ -3,21 +3,21 @@
 .details-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: $spacing-lg 80px;
-  padding: $spacing-xl 0;
+  gap: 16px 80px;
+  padding: 24px 0;
 
   // Tablet responsive
-  @include tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
     grid-template-columns: 1fr;
-    gap: $spacing-lg;
-    padding: $spacing-lg 0;
+    gap: 16px;
+    padding: 16px 0;
   }
 
   // Mobile responsive
-  @include mobile {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
-    gap: $spacing-sm;
-    padding: $spacing-lg 0;
+    gap: 8px;
+    padding: 16px 0;
   }
 }
 
@@ -25,48 +25,48 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   align-items: center;
-  padding: $spacing-sm 0;
+  padding: 8px 0;
 
   // Tablet responsive
-  @include tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
     grid-template-columns: 180px 1fr;
-    gap: $spacing-md;
-    padding: $spacing-md 0;
+    gap: 12px;
+    padding: 12px 0;
     border-bottom: 1px solid $border-color-light;
   }
 
   // Mobile responsive
-  @include mobile {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    gap: $spacing-xs;
-    padding: $spacing-md 0;
+    gap: 4px;
+    padding: 12px 0;
     align-items: flex-start;
     border-bottom: 1px solid $border-color-light;
   }
 
   // Very small mobile - enhanced spacing
-  @media (max-width: #{$breakpoint-mobile-large - 1px}) {
-    padding: $spacing-lg 0;
-    gap: $spacing-sm;
+  @media (max-width: 479px) {
+    padding: 16px 0;
+    gap: 8px;
   }
 }
 
 .detail-label {
   color: $text-primary;
   font-weight: 600;
-  font-size: $font-size-sm;
+  font-size: 14px;
   line-height: 1.4;
 
   // Tablet responsive
-  @include tablet {
-    font-size: $font-size-sm;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
     font-weight: 600;
   }
 
   // Mobile responsive
-  @include mobile {
-    font-size: $font-size-base;
+  @media (max-width: 767px) {
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
   }
@@ -74,15 +74,15 @@
 
 .detail-value {
   color: $text-secondary;
-  font-size: $font-size-sm;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.4;
 
   // Tablet responsive
-  @include tablet {
-    font-size: $font-size-sm;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -90,8 +90,8 @@
   }
 
   // Mobile responsive
-  @include mobile {
-    font-size: $font-size-base;
+  @media (max-width: 767px) {
+    font-size: 16px;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -101,7 +101,7 @@
   }
 
   // Handle long text on mobile
-  @include mobile {
+  @media (max-width: 767px) {
     &.long-text {
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -124,7 +124,7 @@
         text-decoration: underline;
       }
 
-      @include mobile {
+      @media (max-width: 767px) {
         color: $primary-color;
         font-weight: 500;
       }
@@ -134,12 +134,12 @@
   // Skills and tags
   &.skills-item {
     .detail-value {
-      @include tablet {
+      @media (min-width: 768px) and (max-width: 1023px) {
         white-space: normal;
         line-height: 1.5;
       }
       
-      @include mobile {
+      @media (max-width: 767px) {
         white-space: normal;
         line-height: 1.5;
       }
@@ -151,31 +151,31 @@
     .detail-value {
       display: flex;
       align-items: center;
-      gap: $spacing-xs;
+      gap: 4px;
 
-      @include tablet {
+      @media (min-width: 768px) and (max-width: 1023px) {
         justify-content: flex-start;
       }
 
-      @include mobile {
+      @media (max-width: 767px) {
         justify-content: flex-start;
       }
 
       .status-badge {
-        padding: $spacing-xs $spacing-sm;
-        border-radius: $border-radius-sm;
-        font-size: $font-size-xs;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
 
-        @include tablet {
-          font-size: $font-size-xs;
-          padding: $spacing-xs $spacing-md;
+        @media (min-width: 768px) and (max-width: 1023px) {
+          font-size: 12px;
+          padding: 4px 12px;
         }
 
-        @include mobile {
-          font-size: $font-size-xs;
-          padding: $spacing-xs $spacing-md;
+        @media (max-width: 767px) {
+          font-size: 12px;
+          padding: 4px 12px;
         }
       }
     }
@@ -183,11 +183,12 @@
 }
 
 // Enhanced tablet layout
-@include tablet {
+@media (min-width: 768px) and (max-width: 1023px) {
   .details-grid {
+    display: unset !important;
     background: $background-primary;
-    border-radius: $border-radius-md;
-    padding: $spacing-xl;
+    border-radius: 8px;
+    padding: 24px;
     margin: 0;
 
     .detail-item {
@@ -204,12 +205,12 @@
 }
 
 // Enhanced mobile layout for better readability
-@include mobile {
+@media (max-width: 767px) {
   .details-grid {
     background: $background-primary;
-    border-radius: $border-radius-md;
-    padding: $spacing-lg;
-    margin: 0 (-$spacing-md);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 -12px;
 
     .detail-item {
       &:last-child {
@@ -228,13 +229,13 @@
 @media print {
   .details-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-md $spacing-xl;
+    gap: 12px 24px;
     page-break-inside: avoid;
   }
 
   .detail-item {
     grid-template-columns: 150px 1fr;
-    gap: $spacing-sm;
+    gap: 8px;
     page-break-inside: avoid;
   }
 

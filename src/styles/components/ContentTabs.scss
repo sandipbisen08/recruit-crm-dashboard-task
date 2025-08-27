@@ -1,20 +1,27 @@
 .content-tabs {
     display: flex;
     border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
     background-color: #E8EBEE;
 
     .tab-link {
-        padding: 0.75rem 1.25rem;
+        padding: 12px 20px;
         text-decoration: none;
         color: #5f6368;
-        font-size: 0.9rem;
-        font-weight: 600;
+        font-size: 14px;
+        font-weight: 500;
         border-bottom: 2px solid transparent;
         margin-bottom: -1px;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease;
 
-        &.active, &:hover {
+        &:hover {
+            margin-top: 1px;
+            color: #1a73e8;
+            border-bottom-color: #1a73e8;
+            background-color: #ffffff;
+        }
+
+        &.active {
             margin-top: 1px;
             color: #1a73e8;
             border-bottom-color: #1a73e8;

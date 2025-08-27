@@ -133,7 +133,6 @@
         .icon-btn {
             border: 1px solid #bbbbbb;
             background: none;
-            // border: none;
             font-size: 18px;
             color: #5f6368;
             cursor: pointer;
@@ -158,7 +157,6 @@
             margin: 0;
             i {
                 margin-right: 8px;
-                // color: blue;
             }
             span {
                 color: #1a73e8 !important;
@@ -166,15 +164,13 @@
         }
     }
 
-    // ===== RESPONSIVE DESIGN =====
-    
     // Tablet styles
-    @include tablet {
-        padding: $spacing-lg;
-        gap: $spacing-lg;
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding: 16px;
+        gap: 16px;
         
         .candidate-info {
-            gap: $spacing-md;
+            gap: 12px;
             
             .candidate-avatar {
                 width: 55px;
@@ -183,21 +179,21 @@
             
             .candidate-name-title {
                 .name-with-badges {
-                    gap: $spacing-sm;
+                    gap: 8px;
                     flex-wrap: wrap;
                     
                     h2 {
-                        font-size: $font-size-xl;
-                        gap: $spacing-sm;
+                        font-size: 20px;
+                        gap: 8px;
                         
                         .candidate-id {
-                            font-size: $font-size-xs;
-                            padding: $spacing-xs $spacing-sm;
+                            font-size: 12px;
+                            padding: 4px 8px;
                         }
                     }
                     
                     .verification-badges {
-                        gap: $spacing-xs;
+                        gap: 4px;
                         
                         .badge {
                             width: 20px;
@@ -208,10 +204,10 @@
                     
                     .social-icons {
                         margin-left: 0;
-                        gap: $spacing-sm;
+                        gap: 8px;
                         
                         i {
-                            font-size: $font-size-lg;
+                            font-size: 18px;
                             min-width: 36px;
                             min-height: 36px;
                         }
@@ -219,22 +215,22 @@
                 }
                 
                 p {
-                    font-size: $font-size-sm;
+                    font-size: 14px;
                 }
             }
         }
         
         .candidate-actions {
-            gap: $spacing-md;
+            gap: 12px;
             
             .btn {
-                padding: $spacing-sm $spacing-lg;
-                font-size: $font-size-sm;
+                padding: 8px 16px;
+                font-size: 14px;
                 min-height: 40px;
             }
             
             .icon-btn {
-                padding: $spacing-sm;
+                padding: 8px;
                 min-width: 40px;
                 min-height: 40px;
                 display: flex;
@@ -244,15 +240,15 @@
         }
         
         .candidate-contact {
-            gap: $spacing-lg;
-            font-size: $font-size-sm;
+            gap: 16px;
+            font-size: 14px;
             
             p {
                 display: flex;
                 align-items: center;
                 
                 i {
-                    margin-right: $spacing-sm;
+                    margin-right: 8px;
                     width: 18px;
                     flex-shrink: 0;
                 }
@@ -261,18 +257,18 @@
     }
     
     // Mobile styles
-    @include mobile {
+    @media (max-width: 767px) {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas:
             "info"
             "actions"
             "contact";
-        padding: $spacing-lg;
-        gap: $spacing-lg;
+        padding: 16px;
+        gap: 16px;
         
         .candidate-info {
-            gap: $spacing-md;
+            gap: 12px;
             
             .candidate-avatar {
                 width: 48px;
@@ -286,22 +282,22 @@
                 .name-with-badges {
                     flex-direction: column;
                     align-items: flex-start;
-                    gap: $spacing-sm;
-                    margin-bottom: $spacing-sm;
+                    gap: 8px;
+                    margin-bottom: 8px;
                     
                     h2 {
-                        font-size: $font-size-lg;
+                        font-size: 18px;
                         flex-wrap: wrap;
-                        gap: $spacing-sm;
+                        gap: 8px;
                         
                         .candidate-id {
-                            font-size: $font-size-xs;
-                            padding: $spacing-xs $spacing-sm;
+                            font-size: 12px;
+                            padding: 4px 8px;
                         }
                     }
                     
                     .verification-badges {
-                        gap: $spacing-xs;
+                        gap: 4px;
                         
                         .badge {
                             width: 18px;
@@ -312,10 +308,10 @@
                     
                     .social-icons {
                         margin-left: 0;
-                        gap: $spacing-sm;
+                        gap: 8px;
                         
                         i {
-                            font-size: $font-size-lg;
+                            font-size: 18px;
                             min-width: 32px;
                             min-height: 32px;
                             display: flex;
@@ -326,18 +322,18 @@
                 }
                 
                 p {
-                    font-size: $font-size-sm;
+                    font-size: 14px;
                 }
             }
         }
         
         .candidate-actions {
             justify-content: flex-start;
-            gap: $spacing-sm;
+            gap: 8px;
             
             .btn {
-                padding: $spacing-md $spacing-lg;
-                font-size: $font-size-sm;
+                padding: 12px 16px;
+                font-size: 14px;
                 min-height: 44px;
                 display: flex;
                 align-items: center;
@@ -347,20 +343,20 @@
             }
             
             .icon-btn {
-                padding: $spacing-md;
+                padding: 12px;
                 min-width: 44px;
                 min-height: 44px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: $font-size-lg;
+                font-size: 18px;
             }
         }
         
         .candidate-contact {
             flex-direction: column;
-            gap: $spacing-md;
-            font-size: $font-size-sm;
+            gap: 12px;
+            font-size: 14px;
             color: #5f6368;
             
             p {
@@ -368,7 +364,7 @@
                 align-items: center;
                 
                 i {
-                    margin-right: $spacing-sm;
+                    margin-right: 8px;
                     width: 20px;
                     flex-shrink: 0;
                 }
@@ -377,15 +373,13 @@
     }
     
     // Very small mobile - stack actions vertically
-    @media (max-width: #{$breakpoint-mobile-large - 1px}) {
-        @include mobile {
-            .candidate-actions {
-                flex-direction: row;
-                align-items: stretch;
-                
-                .btn {
-                    flex: none;
-                }
+    @media (max-width: 479px) {
+        .candidate-actions {
+            flex-direction: row;
+            align-items: stretch;
+            
+            .btn {
+                flex: none;
             }
         }
     }

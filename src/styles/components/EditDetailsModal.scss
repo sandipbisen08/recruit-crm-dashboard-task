@@ -22,7 +22,7 @@
 
 .modal-content {
     background: $background-primary;
-    border-radius: $border-radius-lg;
+    border-radius: 12px;
     width: 95%;
     max-width: 900px;
     max-height: 90vh;
@@ -44,7 +44,7 @@
     }
 
     // Mobile responsive
-    @include mobile {
+    @media (max-width: 767px) {
         width: 100%;
         height: 100vh;
         max-height: 100vh;
@@ -57,7 +57,7 @@
         }
     }
 
-    @include tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
         width: 90%;
         max-width: 800px;
         max-height: 85vh;
@@ -68,7 +68,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $spacing-2xl;
+    padding: 32px;
     border-bottom: 1px solid $border-color;
     background: $background-secondary;
     flex-shrink: 0;
@@ -76,18 +76,18 @@
     .header-content {
         h2 {
             margin: 0;
-            font-size: $font-size-2xl;
+            font-size: 24px;
             font-weight: 600;
             color: $text-primary;
             
-            @include mobile {
-                font-size: $font-size-xl;
+            @media (max-width: 767px) {
+                font-size: 20px;
             }
         }
 
         .candidate-id {
-            margin: $spacing-xs 0 0 0;
-            font-size: $font-size-sm;
+            margin: 4px 0 0 0;
+            font-size: 14px;
             color: $text-secondary;
             font-weight: 500;
         }
@@ -96,11 +96,11 @@
     .close-button {
         background: none;
         border: none;
-        font-size: $font-size-2xl;
+        font-size: 24px;
         color: $text-secondary;
         cursor: pointer;
-        padding: $spacing-sm;
-        border-radius: $border-radius-sm;
+        padding: 8px;
+        border-radius: 4px;
         transition: all 0.2s ease;
         min-width: 44px;
         min-height: 44px;
@@ -118,8 +118,8 @@
         }
     }
 
-    @include mobile {
-        padding: $spacing-lg;
+    @media (max-width: 767px) {
+        padding: 16px;
     }
 }
 
@@ -133,12 +133,12 @@
     .tab-button {
         background: none;
         border: none;
-        padding: $spacing-lg $spacing-xl;
+        padding: 16px 24px;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: $spacing-sm;
-        font-size: $font-size-sm;
+        gap: 8px;
+        font-size: 14px;
         font-weight: 500;
         color: $text-secondary;
         border-bottom: 3px solid transparent;
@@ -147,7 +147,7 @@
         min-height: 60px;
 
         i {
-            font-size: $font-size-lg;
+            font-size: 18px;
         }
 
         &:hover {
@@ -161,9 +161,9 @@
             background-color: $primary-light;
         }
 
-        @include mobile {
-            padding: $spacing-md $spacing-lg;
-            font-size: $font-size-xs;
+        @media (max-width: 767px) {
+            padding: 12px 16px;
+            font-size: 12px;
             min-height: 50px;
             
             span {
@@ -171,7 +171,7 @@
             }
             
             i {
-                font-size: $font-size-xl;
+                font-size: 20px;
             }
         }
     }
@@ -180,10 +180,11 @@
 .modal-body {
     flex: 1;
     overflow-y: auto;
-    padding: $spacing-2xl;
+    padding: 32px;
+    max-height: 400px;
 
-    @include mobile {
-        padding: $spacing-lg;
+    @media (max-width: 767px) {
+        padding: 16px;
     }
 
     .tab-content {
@@ -198,15 +199,15 @@
     .form-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: $spacing-xl;
+        gap: 24px;
 
-        @include mobile {
+        @media (max-width: 767px) {
             grid-template-columns: 1fr;
-            gap: $spacing-lg;
+            gap: 16px;
         }
 
-        @include tablet {
-            gap: $spacing-lg;
+        @media (min-width: 768px) and (max-width: 1023px) {
+            gap: 16px;
         }
     }
 
@@ -219,15 +220,15 @@
         }
 
         label {
-            margin-bottom: $spacing-sm;
+            margin-bottom: 8px;
             font-weight: 600;
             color: $text-primary;
-            font-size: $font-size-sm;
+            font-size: 14px;
             
             &::after {
                 content: '*';
                 color: $danger-color;
-                margin-left: $spacing-xs;
+                margin-left: 4px;
                 display: none;
             }
             
@@ -246,10 +247,10 @@
         textarea,
         select {
             width: 100%;
-            padding: $spacing-md;
+            padding: 12px;
             border: 2px solid $border-color-light;
-            border-radius: $border-radius-sm;
-            font-size: $font-size-base;
+            border-radius: 4px;
+            font-size: 16px;
             font-family: inherit;
             transition: all 0.2s ease;
             background-color: $background-primary;
@@ -273,9 +274,9 @@
                 color: $text-muted;
             }
 
-            @include mobile {
-                padding: $spacing-md;
-                font-size: $font-size-base;
+            @media (max-width: 767px) {
+                padding: 12px;
+                font-size: 16px;
                 min-height: 44px;
             }
         }
@@ -290,24 +291,24 @@
         select {
             cursor: pointer;
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right $spacing-md center;
+            background-position: right 12px center;
             background-repeat: no-repeat;
             background-size: 16px;
-            padding-right: $spacing-3xl;
+            padding-right: 48px;
             appearance: none;
         }
 
         .error-message {
             color: $danger-color;
-            font-size: $font-size-xs;
-            margin-top: $spacing-xs;
+            font-size: 12px;
+            margin-top: 4px;
             display: flex;
             align-items: center;
-            gap: $spacing-xs;
+            gap: 4px;
             
             &::before {
                 content: '⚠';
-                font-size: $font-size-sm;
+                font-size: 14px;
             }
         }
     }
@@ -316,28 +317,28 @@
 .modal-footer {
     display: flex;
     justify-content: flex-end;
-    gap: $spacing-lg;
-    padding: $spacing-2xl;
+    gap: 16px;
+    padding: 32px;
     border-top: 1px solid $border-color;
     background: $background-secondary;
     flex-shrink: 0;
 
-    @include mobile {
-        padding: $spacing-lg;
+    @media (max-width: 767px) {
+        padding: 16px;
         flex-direction: column-reverse;
-        gap: $spacing-md;
+        gap: 12px;
     }
 
     .btn {
-        padding: $spacing-md $spacing-2xl;
-        border-radius: $border-radius-sm;
-        font-size: $font-size-sm;
+        padding: 12px 32px;
+        border-radius: 4px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
         display: flex;
         align-items: center;
-        gap: $spacing-sm;
+        gap: 8px;
         min-height: 44px;
         border: 2px solid transparent;
 
@@ -388,10 +389,10 @@
             to { transform: rotate(360deg); }
         }
 
-        @include mobile {
+        @media (max-width: 767px) {
             width: 100%;
             justify-content: center;
-            padding: $spacing-lg;
+            padding: 16px;
         }
     }
 }

@@ -12,7 +12,7 @@
         justify-content: space-between;
         align-items: center;
         height: 70px;
-        padding: 0 2rem;
+        padding: 0 32px;
 
         .header-left {
             display: flex;
@@ -30,7 +30,7 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 24px;
             flex: 0 0 auto;
         }
 
@@ -40,12 +40,12 @@
             background-color: #f8f9fa;
             border: 1px solid #dadce0;
             border-radius: 4px;
-            padding: 0.5rem 0.75rem;
-            min-width: 300px;
+            padding: 8px 12px;
+            min-width: 380px;
             
             i {
                 color: #5f6368;
-                margin-right: 0.5rem;
+                margin-right: 8px;
             }
             
             .search-input {
@@ -53,7 +53,7 @@
                 background: transparent;
                 outline: none;
                 flex: 1;
-                font-size: 0.9rem;
+                font-size: 14px;
                 
                 &::placeholder {
                     color: #5f6368;
@@ -64,15 +64,15 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 24px;
             color: #1a73e8;
             img {
                 width: 40px;
             }
             i {
-                font-size: 1.8rem;
+                font-size: 29px;
             }
             span {
                 color: #6e5c5c;
@@ -82,18 +82,18 @@
         .action-buttons {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 12px;
         }
 
         .btn {
-            padding: 0.5rem 1rem;
+            padding: 8px 16px;
             border: 1px solid #dadce0;
             border-radius: 4px;
             background-color: #1a73e8;
             color: white;
             cursor: pointer;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 14px;
 
             &.btn-secondary {
                 background-color: #fff;
@@ -105,16 +105,16 @@
         .icon-buttons {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 24px;
         }
 
         .icon-btn {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 24px;
             color: #5f6368;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
             border-radius: 4px;
             
             &:hover {
@@ -136,7 +136,7 @@
         .user-profile {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
             
             img {
                 width: 40px;
@@ -150,89 +150,87 @@
                 
                 span:first-child {
                     font-weight: 500;
-                    font-size: 0.9rem;
+                    font-size: 14px;
                 }
                 
                 span:last-child {
-                    font-size: 0.8rem;
+                    font-size: 13px;
                     color: #5f6368;
                 }
             }
         }
     }
 
-    // ===== RESPONSIVE DESIGN =====
-    
     // Tablet styles
-    @include tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
         .header-main {
-            padding: 0 $spacing-lg;
-            gap: $spacing-md;
+            padding: 0 32px;
+            gap: 16px;
             height: 65px;
             
             .search-container {
-                min-width: 220px;
-                max-width: 280px;
+                min-width: 352px;
+                max-width: 448px;
             }
             
             .header-right {
-                gap: $spacing-md;
+                gap: 16px;
                 
                 .action-buttons {
-                    gap: $spacing-sm;
+                    gap: 12px;
                     
                     .btn {
-                        padding: $spacing-sm $spacing-md;
-                        font-size: $font-size-sm;
+                        padding: 8px 16px;
+                        font-size: 13px;
                     }
                 }
                 
                 .icon-buttons {
-                    gap: $spacing-sm;
+                    gap: 12px;
                 }
                 
                 .user-profile {
                     .user-info {
                         span:first-child {
-                            font-size: $font-size-sm;
+                            font-size: 13px;
                         }
                         
                         span:last-child {
-                            font-size: $font-size-xs;
+                            font-size: 12px;
                         }
                     }
                     
                     img {
-                        width: 36px;
-                        height: 36px;
+                        width: 35px;
+                        height: 35px;
                     }
                 }
             }
             
             .logo {
-                font-size: $font-size-lg;
+                font-size: 19px;
                 
                 img {
                     width: 35px;
                 }
                 
                 span {
-                    font-size: $font-size-base;
+                    font-size: 16px;
                 }
             }
         }
     }
-    
+
     // Mobile styles
-    @include mobile {
+    @media (max-width: 767px) {
         .header-main {
-            height: $header-height-mobile;
-            padding: 0 $spacing-lg 0 10px;
-            gap: $spacing-sm;
+            height: 56px;
+            padding: 0 32px 0 16px;
+            gap: 12px;
             
             .header-left {
                 .logo {
-                    font-size: $font-size-lg;
+                    font-size: 19px;
                     
                     span {
                         display: none;
@@ -242,8 +240,8 @@
             
             .header-center {
                 .search-container {
-                    min-width: 180px;
-                    max-width: 220px;
+                    min-width: 288px;
+                    max-width: 352px;
                     
                     @media (max-width: 480px) {
                         display: none;
@@ -252,14 +250,14 @@
             }
             
             .header-right {
-                gap: $spacing-sm;
+                gap: 12px;
                 
                 .action-buttons {
-                    gap: $spacing-sm;
+                    gap: 12px;
                     
                     .btn {
-                        padding: $spacing-sm $spacing-md;
-                        font-size: $font-size-xs;
+                        padding: 8px 16px;
+                        font-size: 12px;
                         
                         @media (max-width: 480px) {
                             span {
@@ -270,11 +268,11 @@
                 }
                 
                 .icon-buttons {
-                    gap: $spacing-sm;
+                    gap: 12px;
                 }
                 
                 .icon-btn {
-                    font-size: $font-size-lg;
+                    font-size: 19px;
                     min-width: 30px;
                     min-height: 30px;
                     display: flex;
@@ -283,7 +281,7 @@
                 }
                 
                 .user-profile {
-                    gap: $spacing-sm;
+                    gap: 12px;
                     
                     .user-info {
                         display: none;
@@ -299,7 +297,7 @@
     }
     
     // Mobile large (480px+) - show some elements back
-    @include mobile-large {
+    @media (min-width: 480px) {
         .header-main {
             .header-center .search-container {
                 display: flex;
@@ -307,6 +305,10 @@
             
             .header-right .action-buttons .btn span {
                 display: inline;
+            }
+            
+            .header-right .user-profile .user-info {
+                display: flex;
             }
         }
     }
@@ -316,14 +318,14 @@
 .mobile-search-overlay {
     display: none;
     
-    @include mobile {
+    @media (max-width: 767px) {
         position: fixed;
-        top: $header-height-mobile;
+        top: 56px;
         left: 0;
         right: 0;
         background: $background-primary;
         border-bottom: 1px solid $border-color;
-        padding: $spacing-lg;
+        padding: 16px;
         z-index: $z-index-dropdown;
         
         &.active {

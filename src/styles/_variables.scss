@@ -1,47 +1,14 @@
 // ===== BREAKPOINTS =====
-$breakpoint-mobile: 320px;
-$breakpoint-mobile-large: 480px;
-$breakpoint-tablet: 768px;
-$breakpoint-tablet-large: 1024px;
-$breakpoint-desktop: 1200px;
-$breakpoint-desktop-large: 1400px;
+$mobile: 767px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-large: 1200px;
 
-// Media query mixins
-@mixin mobile {
-  @media (max-width: #{$breakpoint-tablet - 1px}) {
-    @content;
-  }
-}
-
-@mixin mobile-large {
-  @media (min-width: #{$breakpoint-mobile-large}) and (max-width: #{$breakpoint-tablet - 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-tablet-large - 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet-up {
-  @media (min-width: #{$breakpoint-tablet}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$breakpoint-tablet-large}) {
-    @content;
-  }
-}
-
-@mixin desktop-large {
-  @media (min-width: #{$breakpoint-desktop}) {
-    @content;
-  }
-}
+// Media query variables
+$mobile-query: "(max-width: #{$mobile})";
+$tablet-query: "(min-width: #{$tablet}) and (max-width: #{$desktop - 1px})";
+$desktop-query: "(min-width: #{$desktop}) and (max-width: #{$desktop-large - 1px})";
+$desktop-large-query: "(min-width: #{$desktop-large})";
 
 // ===== SPACING =====
 $spacing-xs: 4px;

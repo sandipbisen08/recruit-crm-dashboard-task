@@ -6,10 +6,8 @@
     background-color: #f7f9fc;
     overflow: hidden;
 
-    // ===== RESPONSIVE DESIGN =====
-    
     // Mobile styles - vertical stack layout
-    @include mobile {
+    @media (max-width: 767px) {
         flex-direction: column;
         height: 100vh;
         overflow: hidden;
@@ -20,33 +18,61 @@
 .mobile-menu-toggle {
     display: none;
     
-    @include mobile {
-        display: block;
+    @media (max-width: 767px) {
+        display: flex;
         position: fixed;
-        top: $spacing-md;
-        // left: $spacing-md;
-        right: $spacing-md;
+        top: 10px;
+        right: 16px;
         z-index: $z-index-fixed;
         background: $primary-color;
         color: white;
         border: none;
-        border-radius: $border-radius-sm;
-        padding: $spacing-sm;
-        font-size: $font-size-lg;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 20px;
         cursor: pointer;
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
+        width: 44px;
+        height: 44px;
         align-items: center;
         justify-content: center;
-        box-shadow: $shadow-md;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
         
         &:hover {
             background: $primary-dark;
+            transform: scale(1.05);
         }
         
         &:active {
             transform: scale(0.95);
+        }
+        
+        i {
+            line-height: 1;
+        }
+    }
+}
+
+// Mobile menu backdrop overlay
+.mobile-menu-backdrop {
+    display: none;
+    
+    @media (max-width: 767px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: $z-index-modal - 2;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+        
+        &.active {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
         }
     }
 }
@@ -55,11 +81,11 @@
     width: 80px;
     background-color: #0d2854;
     color: white;
-    padding: 1rem 0;
+    padding: 16px 0;
     flex-shrink: 0;
 
     // Mobile responsive - horizontal layout at top
-    @include mobile {
+    @media (max-width: 767px) {
         width: 100%;
         height: $sidebar-height-mobile;
         padding: 0;
@@ -86,7 +112,7 @@
     overflow: hidden;
 
     // Mobile responsive
-    @include mobile {
+    @media (max-width: 767px) {
         order: 2;
         height: calc(100vh - #{$sidebar-height-mobile});
         
@@ -106,30 +132,29 @@
     flex-shrink: 0;
 
     // Mobile responsive
-    @include mobile {
+    @media (max-width: 767px) {
         height: $header-height-mobile;
-        // padding-left: 60px; 
     }
 }
 
 .content-area {
     display: flex;
     flex-grow: 1;
-    padding: 0.5rem;
-    gap: 1.5rem;
+    padding: 8px;
+    gap: 24px;
     overflow: hidden;
 
     // Tablet responsive
-    @include tablet {
-        padding: $spacing-lg;
-        gap: $spacing-lg;
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding: 24px;
+        gap: 24px;
     }
 
     // Mobile responsive - vertical stack
-    @include mobile {
+    @media (max-width: 767px) {
         flex-direction: column;
-        padding: $spacing-lg;
-        gap: $spacing-lg;
+        padding: 24px;
+        gap: 24px;
         overflow-y: auto;
     }
 }
@@ -138,21 +163,21 @@
     flex-grow: 1;
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 24px;
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     // Tablet responsive
-    @include tablet {
-        padding: $spacing-xl;
-        border-radius: $border-radius-md;
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding: 32px;
+        border-radius: 8px;
     }
 
     // Mobile responsive
-    @include mobile {
+    @media (max-width: 767px) {
         order: 1;
-        padding: $spacing-lg;
-        border-radius: $border-radius-md;
+        padding: 24px;
+        border-radius: 8px;
         overflow-y: visible;
         flex-shrink: 0;
     }
@@ -163,20 +188,20 @@
     min-width: 300px;
     background-color: #E6E9EC;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 24px;
     overflow-y: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 
     // Tablet responsive
-    @include tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
         width: $right-sidebar-width-tablet;
         min-width: 280px;
-        padding: $spacing-xl;
+        padding: 32px;
     }
 
     // Mobile responsive - hidden by default, shown as overlay
-    @include mobile {
+    @media (max-width: 767px) {
         position: fixed;
         top: 0;
         right: -100%;
@@ -199,7 +224,7 @@
 .sidebar-backdrop {
     display: none;
     
-    @include mobile {
+    @media (max-width: 767px) {
         position: fixed;
         top: 0;
         left: 0;
@@ -221,11 +246,11 @@
 .sidebar-right-toggle {
     display: none;
     
-    @include mobile {
+    @media (max-width: 767px) {
         display: block;
         position: fixed;
-        bottom: $spacing-2xl;
-        right: $spacing-lg;
+        bottom: 32px;
+        right: 16px;
         z-index: $z-index-fixed;
         background: $primary-color;
         color: white;
@@ -233,7 +258,7 @@
         border-radius: $border-radius-full;
         width: 56px;
         height: 56px;
-        font-size: $font-size-xl;
+        font-size: 20px;
         cursor: pointer;
         box-shadow: $shadow-lg;
         
@@ -250,30 +275,30 @@
 /* Enhanced Responsive Design */
 
 // Desktop large screens
-@include desktop-large {
+@media (min-width: 1200px) {
     .content-area {
-        padding: $spacing-xl;
-        gap: $spacing-2xl;
+        padding: 32px;
+        gap: 48px;
     }
     
     .main-content {
-        padding: $spacing-2xl;
+        padding: 48px;
     }
     
     .sidebar-right {
         width: $right-sidebar-width-desktop;
-        padding: $spacing-2xl;
+        padding: 48px;
     }
 }
 
 // Desktop styles
-@include desktop {
+@media (min-width: 1024px) and (max-width: 1199px) {
     .sidebar-right {
         width: $right-sidebar-width-desktop;
     }
     
     .content-area {
-        gap: $spacing-xl;
+        gap: 32px;
     }
 }
 
@@ -299,12 +324,12 @@
         }
         
         .content-area {
-            padding: $spacing-lg;
-            gap: $spacing-lg;
+            padding: 24px;
+            gap: 24px;
         }
         
         .main-content {
-            padding: $spacing-xl;
+            padding: 32px;
         }
     }
 }
@@ -329,7 +354,7 @@
     
     .content-area {
         flex-direction: column;
-        padding: 16px;
+        padding: 5px;
     }
     
     .sidebar-right {
@@ -347,7 +372,7 @@
 .mobile-only {
     display: none;
     
-    @include mobile {
+    @media (max-width: 767px) {
         display: block;
     }
 }
@@ -355,7 +380,7 @@
 .tablet-up {
     display: none;
     
-    @include tablet-up {
+    @media (min-width: 768px) {
         display: block;
     }
 }
@@ -363,13 +388,13 @@
 .desktop-only {
     display: none;
     
-    @include desktop {
+    @media (min-width: 1024px) {
         display: block;
     }
 }
 
 // Mobile-specific layout helpers
-@include mobile {
+@media (max-width: 767px) {
     .mobile-stack {
         flex-direction: column !important;
     }

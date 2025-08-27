@@ -33,7 +33,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({ isOpen = false, isMobile = 
       </div>
       <div className="sidebar-tabs">
         {tabs.map(tab => (
-          <a href="#" key={tab} className={`sidebar-tab-link ${tab === activeTab ? 'active' : ''}`}>
+          <a href="" key={tab} className={`sidebar-tab-link ${tab === activeTab ? 'active' : ''}`}>
             {tab}
           </a>
         ))}
